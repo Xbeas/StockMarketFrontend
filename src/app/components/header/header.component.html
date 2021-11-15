@@ -1,0 +1,64 @@
+<nav class="navbar border-bottom  navbar-expand-lg navbar-dark bg-primary" ng-init="Reload()">
+    <div class="container">
+      <a class="navbar-brand mb-0 h1" routerLink="/auth/login">Stock Market Chartings</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent" *ngIf="auth && admin" >
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="/users">Users</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/ipo-listing" > IPOs Section</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" >Manage Companys</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" >Manage Exchanges</a>
+          </li>
+        <li class="nav-item">
+          <a class="nav-link" >Manage Sectors</a>
+        </li>
+        </ul>
+        </div>
+
+
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent" *ngIf="auth && !admin" >
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="/profile">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/ipo-listing">IPOs</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" >Compare Company</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" >Compare Sectors</a>
+          </li>
+        </ul>
+        </div>
+
+
+        <ul class="navbar-nav my-2 my-lg-0"  *ngIf="!auth" >
+            <li class="nav-item">
+                <a class="nav-link btn-outline-primary"  routerLink="/auth/login" >Login</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link"  routerLink="/auth/register" >Register</a>
+          </li>
+        </ul>
+
+        <ul class="navbar-nav my-2 my-lg-0"  *ngIf="auth"  >
+          <li class="nav-item">
+            <a class="nav-link" href="/auth/login" (click)="OnLogout()"> Logout </a>
+          </li>
+        </ul>
+
+    </div>
+  </nav>
